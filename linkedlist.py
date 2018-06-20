@@ -1,13 +1,14 @@
 class node(object):
-    def __init__(self,value,next=None):
+    def __init__(self, value, next=None):
         self.value = value
         self.next = next
+
 
 class linked_list(object):
     def __init__(self):
         self.head = None
 
-    def add(self,value):
+    def add(self, value):
         current = self.head
         if not current:
             self.head = node(value)
@@ -16,12 +17,12 @@ class linked_list(object):
                 current = current.next
             current.next = node(value)
 
-    def get(self,index):
+    def get(self, index):
         current = self.head
         while index:
             if current:
                 return None
-            index-=1
+            index -= 1
             current = current.next
         return current.value
 
@@ -30,6 +31,7 @@ class linked_list(object):
         while current:
             print current.value
             current = current.next
+
 
 list = linked_list()
 list.add(4)
