@@ -23,7 +23,7 @@ class linked_list(object):
     def get(self, index):
         current = self.head
         while index:
-            if current:
+            if not current:
                 return None
             index -= 1
             current = current.next
