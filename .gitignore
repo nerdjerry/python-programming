@@ -1,2 +1,3 @@
 .vscode/launch.json
-error.pyc
+.vscode/settings.json
+*.pyc
