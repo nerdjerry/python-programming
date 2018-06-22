@@ -52,7 +52,7 @@ class linked_list(object):
     def print_list(self):
         current = self.head
         while current:
-            print current.value
+            print(current.value)
             current = current.next
 
 
@@ -60,6 +60,6 @@ list = linked_list()
 list.add(4)
 list.add(5)
 list.add(6)
-print list.get(2)
-print list.delete(8)
+print(list.get(2))
+print(list.delete(8))
 list.print_list()
