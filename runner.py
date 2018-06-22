@@ -1,5 +1,5 @@
 from linkedlist import *
-from queue import *
+from queue import queue
 
 #LinkedList
 list = linked_list()
@@ -14,4 +14,7 @@ list.print_list()
 coffee_line = queue()
 coffee_line.enqueue("Bob")
 coffee_line.enqueue("Sandra")
+coffee_line.enqueue("Flash")
+coffee_line.enqueue("Iris")
 print(coffee_line.deqeue())
+coffee_line.print_queue()
