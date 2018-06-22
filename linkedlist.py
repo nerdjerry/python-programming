@@ -10,15 +10,15 @@ class node(object):
 class linked_list(object):
     def __init__(self):
         self.head = None
+        self.tail = None
 
     def add(self, value):
-        current = self.head
-        if not current:
+        if not self.tail:
             self.head = node(value)
+            self.tail = self.head
         else:
-            while current.next:
-                current = current.next
-            current.next = node(value)
+            self.tail.next = node(value)
+            self.tail = self.tail.next
 
     def get(self, index):
         current = self.head
