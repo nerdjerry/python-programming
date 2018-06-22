@@ -11,6 +11,7 @@ class linked_list(object):
     def __init__(self):
         self.head = None
         self.tail = None
+        self.size = -1
 
     def add(self, value):
         if not self.tail:
@@ -19,6 +20,7 @@ class linked_list(object):
         else:
             self.tail.next = node(value)
             self.tail = self.tail.next
+        self.size+=1
 
     def get(self, index):
         current = self.head
@@ -36,8 +38,10 @@ class linked_list(object):
             return error("Operation not supported")
         elif index is 0:
             self.head = current.next
+            value = current.value
             current.next = None
-            return True
+            self.size-=1
+            return value
         else:
             while index:
                 if not current:
@@ -46,8 +50,13 @@ class linked_list(object):
                 previous = current
                 current = current.next
             previous.next = current.next
+            value = current.value
             current.next = None
-            return True
+            self.size-=1
+            return value
+
+    def get_size(self):
+        return self.size
 
     def print_list(self):
         current = self.head
@@ -55,11 +64,3 @@ class linked_list(object):
             print(current.value)
             current = current.next
 
-
-list = linked_list()
-list.add(4)
-list.add(5)
-list.add(6)
-print(list.get(2))
-print(list.delete(8))
-list.print_list()
