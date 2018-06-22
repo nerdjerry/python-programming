@@ -1,5 +1,5 @@
 from error import error
-from linkedlist import *
+from linkedlist import linked_list
 
 class queue(object):
     
