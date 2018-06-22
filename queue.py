@@ -11,3 +11,6 @@ class queue(object):
     
     def deqeue(self):
         return self.list.delete(0)
+    
+    def print_queue(self):
+        self.list.print_list()
