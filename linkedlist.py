@@ -14,12 +14,12 @@ class linked_list(object):
         self.size = -1
 
     def add(self, value):
+        newNode = node(value)
         if not self.tail:
-            self.head = node(value)
-            self.tail = self.head
+            self.head = newNode
         else:
-            self.tail.next = node(value)
-            self.tail = self.tail.next
+            self.tail.next = newNode
+        self.tail = newNode
         self.size+=1
 
     def get(self, index):
