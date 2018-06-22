@@ -57,10 +57,11 @@ class linked_list(object):
 
     def get_size(self):
         return self.size
-
+ 
     def print_list(self):
         current = self.head
         while current:
-            print(current.value)
+            print(current.value, end='->')
             current = current.next
+        print()
 
