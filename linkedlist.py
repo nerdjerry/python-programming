@@ -87,4 +87,18 @@ class linked_list(object):
             print(current.value, end='->')
             current = current.next
         print()
-
+    
+    def reverse(self):
+        current = self.head
+        prev = None
+        next = None
+        if self.head:
+            if self.head.next:
+                next = current.next
+                self.head.next = None
+            while next:
+                prev = current
+                current = next
+                next = current.next
+                current.next = prev
+        self.head = current
