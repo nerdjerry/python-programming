@@ -32,7 +32,19 @@ class linked_list(object):
             current = self.head
             self.head = newNode
             self.head.next = current
-            
+    
+    def addAtIndex(self,value,index):
+        newNode = node(value)
+        current = self.head
+        while index != 1:
+            index -=1
+            if current :
+                current = current.next
+        nextNode = current.next
+        current.next = newNode
+        newNode.next = nextNode
+        self.size +=1
+
     def get(self, index):
         current = self.head
         while index:
