@@ -5,15 +5,12 @@ class queue(object):
     def __init__(self):
         self.insert = -1
         self.delete = -1
-        self.arr = [None] * 10
+        self.arr = []
     
     def enqueue(self,value):
-        if not self.isFull():
-            self.insert +=1
-            self.arr[self.insert] = value
-            return True
-        else:
-            return error("List is full")
+        self.insert +=1
+        self.arr.append(value)
+        return True
     
     def dequeue(self):
         if not self.isEmpty():
