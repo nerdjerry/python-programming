@@ -13,6 +13,7 @@ class linked_list(object):
         self.tail = None
         self.size = -1
 
+    #Add at the end of linked list in O(1)
     def add(self, value):
         newNode = node(value)
         if not self.tail:
@@ -22,6 +23,16 @@ class linked_list(object):
         self.tail = newNode
         self.size+=1
 
+    def addAtHead(self,value):
+        newNode = node(value)
+        
+        if not self.head:
+            self.head = newNode
+        else:
+            current = self.head
+            self.head = newNode
+            self.head.next = current
+            
     def get(self, index):
         current = self.head
         while index:
