@@ -115,3 +115,36 @@ def compare_lists(llist1, llist2):
     if list1_current != list2_current:
         return 0
     return 1
+
+#merge two sorted linked list
+def mergeLists(head1, head2):
+    current1 = head1
+    current2 = head2
+    if not head1:
+        return head2
+    if not head2:
+        return head1
+    head = None
+    current = None
+    while current1 and current2:
+        if current1.value < current2.value:
+            if not head:
+                head = node(current1.value)
+                current = head
+            else:
+                current.next = node(current1.value)
+                current = current.next
+            current1 = current1.next
+        else:
+            if not head:
+                head = node(current2.value)
+                current = head
+            else:
+                current.next = node(current2.value)
+                current = current.next
+            current2 = current2.next
+    if not current1:
+        current.next = current2
+    if not current2:
+        current.next = current1
+    return head
