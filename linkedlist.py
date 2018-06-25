@@ -102,3 +102,16 @@ class linked_list(object):
                 next = current.next
                 current.next = prev
         self.head = current
+
+#pass head of two lists to compare
+def compare_lists(llist1, llist2):
+    list1_current = llist1
+    list2_current = llist2
+    while list1_current and list2_current:
+        if list1_current.value != list2_current.value:
+            return 0
+        list1_current =list1_current.next
+        list2_current = list2_current.next
+    if list1_current != list2_current:
+        return 0
+    return 1
