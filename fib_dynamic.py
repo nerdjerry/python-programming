@@ -13,3 +13,11 @@ def fib(n, mem):
 n = 310
 mem = [None] * (n+1)
 print(fib(n,mem))
+
+def fib_bottom(n):
+    mem = [None,1,1]
+    for i in range(3,n+1):
+        mem.append(mem[i-1]+mem[i-2])
+    return mem[n]
+
+print(fib_bottom(10))
