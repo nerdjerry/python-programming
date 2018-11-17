@@ -12,7 +12,7 @@ def swap(data,largestElemenetIndex,lastSortedIndex):
     data[largestElemenetIndex] = data[lastSortedIndex]
     data[lastSortedIndex] = temp
 
-array = [56,12,34,-91,23,43]
+array = [20, 35, -15, 7, 55, 1, -22]
 selectionSort(array)
-for i in range(len(array)-1):
+for i in range(len(array)):
     print(array[i])

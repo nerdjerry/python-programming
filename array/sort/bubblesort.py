@@ -9,7 +9,7 @@ def swap(array, i):
     array[i+1] = array[i] - array[i+1]
     array[i] = array[i] - array[i+1]
 
-array = [56,12,34,-91,23,43]
+array = [20, 35, -15, 7, 55, 1, -22]
 bubblesort(array)
-for i in range(len(array)-1):
+for i in range(len(array)):
     print(array[i])
