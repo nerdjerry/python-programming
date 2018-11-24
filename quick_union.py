@@ -1,6 +1,7 @@
 class unionFind(object):
     def __init__(self):
         self.id = [0,1,2,3,4,5,6,7,8,9]
+        self.size = [1] * 10
 
     def root(self,node):
         while self.id[node]!= node:
@@ -13,7 +14,12 @@ class unionFind(object):
     def union(self, p, q):
         proot = self.root(p)
         qroot = self.root(q)
-        self.id[proot] = qroot
+        if self.size[proot] >= self.size[qroot] :
+            self.id[qroot] = proot
+            self.size[proot] = self.size[proot] + self.size[qroot]
+        else:
+            self.id[proot] = qroot
+            self.size[qroot] = self.size[qroot] + self.size[proot]
 
 runner = unionFind()
 runner.union(4,5)
