@@ -7,6 +7,14 @@ def mergesort(array, start, end):
         merge(array,start,mid,end)
 
 def merge(array, start, mid, end):
+    """
+    Optimization 1: If last element of left subarray is less than
+    equal to first element of right subarray then we need not do any comparison
+    as left and right subarrays will already be sorted in themselves.
+    So just merge two
+    """
+    if array[mid] <= array[mid+1]:
+        return
     n = end - start +1
     temp = [None] * n
     tindex = 0
