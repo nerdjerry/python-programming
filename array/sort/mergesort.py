@@ -12,7 +12,6 @@ def merge(array, start, mid, end):
     tindex = 0
     i = start
     j = mid + 1
-
     while i<=mid or j <=end:
         if i == mid + 1 :
             temp[tindex] = array[j]
@@ -23,7 +22,7 @@ def merge(array, start, mid, end):
             tindex = tindex + 1
             i = i + 1
         else:
-            if array[i] < array[j]:
+            if array[i] <= array[j]:
                 temp[tindex]  = array[i]
                 i = i + 1
                 tindex = tindex + 1
