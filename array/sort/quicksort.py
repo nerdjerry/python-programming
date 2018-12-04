@@ -11,13 +11,13 @@ def partition(array, start, end):
     j = j - 1
     
     while i < j :
-        while array[j] > pivot and i < j:
+        while i < j and array[j] > pivot:
             j = j - 1
         if i < j:
             array[i] = array[j]
             i = i + 1
        
-        while array[i] <= pivot and i < j:
+        while i<j and array[i] <= pivot:
             i = i + 1
         if i < j:
             array[j] = array[i]
