@@ -20,31 +20,33 @@ def merge(array, start, mid, end):
     tindex = 0
     i = start
     j = mid + 1
-    while i<=mid or j <=end:
-        if i == mid + 1 :
-            temp[tindex] = array[j]
-            tindex = tindex + 1
-            j = j + 1
-        elif j == end + 1 :
-            temp[tindex] = array[i]
-            tindex = tindex + 1
-            i = i + 1
-        else:
-            if array[i] <= array[j]:
-                temp[tindex]  = array[i]
-                i = i + 1
-                tindex = tindex + 1
-            else:
-                temp[tindex] = array[j]
-                j = j + 1
-                tindex = tindex + 1
     
-    aindex = end
-    tindex = tindex - 1
-    while aindex >= start :
-        array[aindex] = temp[tindex]
-        aindex = aindex - 1
-        tindex = tindex - 1
+    while i < mid + 1 and j < end + 1 :
+        if array[i] <= array[j]:
+            temp[tindex] = array[i]
+            tindex +=1
+            i +=1
+        else:
+            temp[tindex] = array[j]
+            tindex+=1
+            j+=1
+    
+    """
+    Optimisation 2: No need to copy right subarray elements into temp and then back to array 
+    as they are already in correct position if you have finished elements in left subarray
+    Also, left subarray elements can be directly copied into array at their correct location
+    """
+    arrayCopy(array,array,i,start+tindex,mid-i+1)
+    arrayCopy(temp,array,0,start,tindex)
+
+def arrayCopy(source,dest,sourceStart, destStart, count):
+    i = sourceStart
+    j = destStart
+    while count > 0:
+        dest[j] = source[i]
+        i+=1
+        j+=1
+        count-=1
 
 test = [5,9,8,3,45,32,5,7]
 mergesort(test,0,7)
