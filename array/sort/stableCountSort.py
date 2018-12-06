@@ -12,10 +12,13 @@ def countSort(array, min, max):
         temp[countArray[array[i]-min]-1] = array[i]
         countArray[array[i]-min]-=1
     
-    return temp
+    for i in range(len(temp)):
+        array[i] = temp[i]
+        i+=1
+
 
 test = [2,9,2,4,2,6,5,9,3]
-test = countSort(test,2,9)
+countSort(test,2,9)
 
 for i in test:
     print(i)
