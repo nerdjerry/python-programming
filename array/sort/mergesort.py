@@ -48,8 +48,8 @@ def arrayCopy(source,dest,sourceStart, destStart, count):
         j+=1
         count-=1
 
-test = [5,9,8,3,45,32,5,7]
-mergesort(test,0,7)
+test = [7658,6543,4321,5674,1113,3213,1236]
+mergesort(test,0,6)
 
 for element in test:
     print(element)
