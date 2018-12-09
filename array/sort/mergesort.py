@@ -1,9 +1,9 @@
 from math import floor
 def mergesort(array, start, end):
-    if start < end:
+    if not end - start < 2:
         mid = floor((start+end)/2)
         mergesort(array, start, mid)
-        mergesort(array, mid+1, end)
+        mergesort(array, mid, end)
         merge(array,start,mid,end)
 
 def merge(array, start, mid, end):
@@ -13,15 +13,15 @@ def merge(array, start, mid, end):
     as left and right subarrays will already be sorted in themselves.
     So just merge two
     """
-    if array[mid] <= array[mid+1]:
+    if array[mid-1] <= array[mid]:
         return
-    n = end - start +1
+    n = end - start
     temp = [None] * n
     tindex = 0
     i = start
-    j = mid + 1
+    j = mid
     
-    while i < mid + 1 and j < end + 1 :
+    while i < mid  and j < end :
         if array[i] <= array[j]:
             temp[tindex] = array[i]
             tindex +=1
@@ -36,7 +36,7 @@ def merge(array, start, mid, end):
     as they are already in correct position if you have finished elements in left subarray
     Also, left subarray elements can be directly copied into array at their correct location
     """
-    arrayCopy(array,array,i,start+tindex,mid-i+1)
+    arrayCopy(array,array,i,start+tindex,mid-i)
     arrayCopy(temp,array,0,start,tindex)
 
 def arrayCopy(source,dest,sourceStart, destStart, count):
@@ -49,7 +49,7 @@ def arrayCopy(source,dest,sourceStart, destStart, count):
         count-=1
 
 test = [7658,6543,4321,5674,1113,3213,1236]
-mergesort(test,0,6)
+mergesort(test,0,7)
 
 for element in test:
     print(element)
