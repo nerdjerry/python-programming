@@ -11,8 +11,23 @@ def shift(array,newElement,i):
     array[i-1] = newElement
     shift(array,newElement,i-1)
 
+
+def insertionRecurssion(array, num):
+    if num < 2:
+        return 
+    
+    insertionRecurssion(array, num - 1)
+
+    newElement = array[num]
+    j = num
+    while ( j > 0 and array[j-1]>newElement):
+        array[j] = array[j-1]
+        j -=1
+    array[j] = newElement
+
+
 test = [4,5,7,1,2,6,12]
-insertionsort(test)
+insertionRecurssion(test,6)
 
 for i in test:
     print(i)
