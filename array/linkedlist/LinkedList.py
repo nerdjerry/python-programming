@@ -36,3 +36,7 @@ list.insertAtStart(prateek)
 list.insertAtStart(sara)
 
 list.print()
+
+print(list.removeFromStart().getEmployee())
+
+list.print()
