@@ -6,6 +6,7 @@ class DoublyLinkedList:
     def __init__(self):
         self.head = None
         self.tail = None
+        self.size = 0
     
     def insertAtStart(self, employee):
         newEmployeeNode = EmployeeNode(employee)
@@ -15,8 +16,9 @@ class DoublyLinkedList:
             self.head.setPrev(newEmployeeNode)
         else:
             self.tail = newEmployeeNode
-        
+
         self.head = newEmployeeNode
+        self.size +=1
 
     def insertAtEnd(self, employee):
         newEmployeeNode = EmployeeNode(employee)
@@ -28,18 +30,27 @@ class DoublyLinkedList:
             self.head = newEmployeeNode
         
         self.tail = newEmployeeNode
+        self.size +=1
 
     def removeAtFront(self):
         removedNode = self.head
         self.head = removedNode.getNext()
         removedNode.setNext(None)
+        self.size -=1
         return removedNode
 
     def removeAtEnd(self):
         removedNode = self.tail
         self.tail = removedNode.getPrev()
         removedNode.setPrev(None)
+        self.size -=1
         return removedNode
+
+    def getSize(self):
+        return self.size
+    
+    def isEmpty(self):
+        return self.head == None
 
     def print(self):
         currentNode = self.head
@@ -63,3 +74,6 @@ list.print()
 print(list.removeAtFront().getEmployee())
 
 list.print()
+
+print(list.getSize())
+print(list.isEmpty())
