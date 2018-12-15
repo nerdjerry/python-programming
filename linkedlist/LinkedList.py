@@ -15,6 +15,8 @@ class LinkedList(object):
         self.size +=1
 
     def removeFromStart(self):
+        if(self.isEmpty()):
+            return None
         removedNode = self.head
         self.head = removedNode.getNext()
         removedNode.setNext(None)
@@ -45,6 +47,8 @@ list.insertAtStart(sara)
 
 list.print()
 
+print(list.removeFromStart().getEmployee())
+print(list.removeFromStart().getEmployee())
 print(list.removeFromStart().getEmployee())
 
 list.print()
