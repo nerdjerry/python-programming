@@ -33,6 +33,10 @@ class DoublyLinkedList:
         self.size +=1
 
     def removeAtFront(self):
+        if(self.isEmpty()):
+            return None
+        if(self.head.getNext() == None):
+            self.tail = None
         removedNode = self.head
         self.head = removedNode.getNext()
         removedNode.setNext(None)
@@ -40,6 +44,10 @@ class DoublyLinkedList:
         return removedNode
 
     def removeAtEnd(self):
+        if(self.isEmpty()):
+            return None
+        if(self.tail.getPrev() == None):
+            self.head = None
         removedNode = self.tail
         self.tail = removedNode.getPrev()
         removedNode.setPrev(None)
