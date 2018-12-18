@@ -6,17 +6,14 @@ class StackArray(object):
         self.data = [None] * self.length
     
     def push(self,value):
-        if self.head < self.length-1:
-            self.head +=1
-            self.data[self.head] = value
-        else:
+        if self.head >= self.length - 1:
             temp = [None] * 2 * self.length
             for i in range(self.length):
                 temp[i] = self.data[i]
             self.data = temp
             self.length *= 2
-            self.head += 1
-            self.data[self.head] = value
+        self.head += 1
+        self.data[self.head] = value
     
     def pop(self):
         if self.head > -1:
