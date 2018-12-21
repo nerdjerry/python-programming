@@ -31,12 +31,14 @@ class LinkedList(object):
         if current.getEmployee() == employee:
             newEmployeeNode.setNext(current)
             self.head = newEmployeeNode
+            self.size +=1
             return True
         while current.getNext() != None and current.getNext().getEmployee() != employee:
             current = current.getNext()
         if current.getNext() != None:    
             newEmployeeNode.setNext(current.getNext())
             current.setNext(newEmployeeNode)
+            self.size +=1
             return True
         else:
             return False
