@@ -29,3 +29,9 @@ class Employee(object):
                 ", lastname='" + self.lastName + '\'' +
                 ", id=" + str(self.id) +
                 '}')
+    
+    def __eq__(self, other):
+        if isinstance(other, self.__class__):
+            return self.firstName == other.getFirstName() and \
+                    self.lastName == other.getLastName() and \
+                    self.id == other.getId()

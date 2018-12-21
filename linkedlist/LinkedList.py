@@ -22,6 +22,22 @@ class LinkedList(object):
         removedNode.setNext(None)
         self.size -=1
         return removedNode
+    
+    def addBefore(self,newEmployee, employee):
+        current = self.head
+        newEmployeeNode = EmployeeNode(newEmployee)
+        if current.getEmployee() == employee:
+            newEmployeeNode.setNext(current)
+            self.head = newEmployeeNode
+            return
+        while current.getNext().getEmployee() != employee:
+            current = current.getNext()
+        if current.getNext().getEmployee() == employee:    
+            newEmployeeNode.setNext(current.getNext())
+            current.setNext(newEmployeeNode)
+            return
+        else:
+            return
     def getSize(self):
         return self.size
 
@@ -46,7 +62,9 @@ list.insertAtStart(prateek)
 list.insertAtStart(sara)
 
 list.print()
-
+aditi = Employee("Aditi","Aggarwal",321)
+list.addBefore(aditi,sara)
+list.print()
 print(list.removeFromStart().getEmployee())
 print(list.removeFromStart().getEmployee())
 print(list.removeFromStart().getEmployee())
