@@ -53,6 +53,20 @@ class DoublyLinkedList:
         removedNode.setPrev(None)
         self.size -=1
         return removedNode
+    def addBefore(self,newEmployee, employee):
+        newEmployeeNode = EmployeeNode(newEmployee)
+        current = self.head
+        if current.getEmployee() == employee:
+            newEmployeeNode.setNext(current)
+            current.setPrev(newEmployeeNode)
+            self.head = newEmployeeNode
+            return
+        while current.getNext().getEmployee() != employee:
+            current = current.getNext()
+        newEmployeeNode.setNext(current.getNext())
+        current.getNext().setPrev(newEmployeeNode)
+        current.setNext(newEmployeeNode)
+        newEmployeeNode.setPrev(current)
 
     def getSize(self):
         return self.size
@@ -78,7 +92,9 @@ list.insertAtEnd(prateek)
 list.insertAtEnd(sara)
 
 list.print()
-
+aditi = Employee("Aditi","Aggarwal",31)
+list.addBefore(aditi,prateek)
+list.print()
 print(list.removeAtFront().getEmployee())
 
 list.print()
