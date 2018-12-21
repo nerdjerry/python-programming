@@ -21,12 +21,14 @@ class CircularLinkedList(object):
             return None
         elif self._head.getNext() == self._head:
             removedNode = self._head
+            removedNode.setNext(None)
             self._tail = None
             self._head = None
         else : 
             removedNode = self._head
             self._head = self._head.getNext()
             self._tail.setNext(self._head)
+            removedNode.setNext(None)
         self._size -= 1
         return removedNode
 
