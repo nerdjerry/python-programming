@@ -56,17 +56,23 @@ class DoublyLinkedList:
     def addBefore(self,newEmployee, employee):
         newEmployeeNode = EmployeeNode(newEmployee)
         current = self.head
+        if self.isEmpty():
+            return False
         if current.getEmployee() == employee:
             newEmployeeNode.setNext(current)
             current.setPrev(newEmployeeNode)
             self.head = newEmployeeNode
-            return
+            return True
         while current.getNext().getEmployee() != employee:
             current = current.getNext()
-        newEmployeeNode.setNext(current.getNext())
-        current.getNext().setPrev(newEmployeeNode)
-        current.setNext(newEmployeeNode)
-        newEmployeeNode.setPrev(current)
+        if(current.getNext().getEmployee() == employee):
+            newEmployeeNode.setNext(current.getNext())
+            current.getNext().setPrev(newEmployeeNode)
+            current.setNext(newEmployeeNode)
+            newEmployeeNode.setPrev(current)
+            return True
+        else:
+            return False
 
     def getSize(self):
         return self.size

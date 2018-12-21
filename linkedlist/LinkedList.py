@@ -26,18 +26,20 @@ class LinkedList(object):
     def addBefore(self,newEmployee, employee):
         current = self.head
         newEmployeeNode = EmployeeNode(newEmployee)
+        if self.isEmpty():
+            return False
         if current.getEmployee() == employee:
             newEmployeeNode.setNext(current)
             self.head = newEmployeeNode
-            return
+            return True
         while current.getNext().getEmployee() != employee:
             current = current.getNext()
         if current.getNext().getEmployee() == employee:    
             newEmployeeNode.setNext(current.getNext())
             current.setNext(newEmployeeNode)
-            return
+            return True
         else:
-            return
+            return False
     def getSize(self):
         return self.size
 
