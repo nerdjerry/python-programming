@@ -63,7 +63,7 @@ class DoublyLinkedList:
             current.setPrev(newEmployeeNode)
             self.head = newEmployeeNode
             return True
-        while current.getNext().getEmployee() != employee:
+        while current.getNext() != None and current.getNext().getEmployee() != employee:
             current = current.getNext()
         if(current.getNext().getEmployee() == employee):
             newEmployeeNode.setNext(current.getNext())

@@ -32,9 +32,9 @@ class LinkedList(object):
             newEmployeeNode.setNext(current)
             self.head = newEmployeeNode
             return True
-        while current.getNext().getEmployee() != employee:
+        while current.getNext() != None and current.getNext().getEmployee() != employee:
             current = current.getNext()
-        if current.getNext().getEmployee() == employee:    
+        if current.getNext() != None:    
             newEmployeeNode.setNext(current.getNext())
             current.setNext(newEmployeeNode)
             return True
@@ -65,9 +65,9 @@ list.insertAtStart(sara)
 
 list.print()
 aditi = Employee("Aditi","Aggarwal",321)
-list.addBefore(aditi,sara)
 list.print()
 print(list.removeFromStart().getEmployee())
+list.addBefore(aditi,sara)
 print(list.removeFromStart().getEmployee())
 print(list.removeFromStart().getEmployee())
 
