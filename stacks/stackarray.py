@@ -1,8 +1,8 @@
 class StackArray(object):
 
-    def __init__(self):
+    def __init__(self,capacity):
         self.head = -1
-        self.length = 10
+        self.length = capacity
         self.data = [None] * self.length
     
     def push(self,value):
@@ -30,26 +30,3 @@ class StackArray(object):
     def print(self):
         for i in range(self.head, -1, -1):
             print(self.data[i])
-
-stack = StackArray()
-stack.push(5)
-stack.push(6)
-stack.push(9)
-stack.push(8)
-stack.push(1)
-stack.push(5)
-stack.push(21)
-stack.push(12)
-stack.push(23)
-stack.push(13)
-stack.push(123)
-stack.push(1235)
-stack.push(21)
-stack.print()
-print(stack.peak())
-stack.pop()
-stack.pop()
-stack.pop()
-stack.pop()
-stack.pop()
-stack.print()
