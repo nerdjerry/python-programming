@@ -26,6 +26,9 @@ class Queue(object):
             self.queue[self.front] = None
             self.front +=1
             self.size -=1
+            if(self.isEmpty()):
+                self.front = 0
+                self.end = -1
             return removed
 
     def peak(self):
