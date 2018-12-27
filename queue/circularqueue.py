@@ -12,16 +12,10 @@ class circularqueue(object):
             temp = [None] * 2 * self.capacity
             i = 0
             j = self.front
-            while j < self.capacity:
+            while i < self.capacity:
                 temp[i] = self.queue[j]
+                j = (j + 1) % self.capacity
                 i += 1
-                j += 1
-            if i < self.capacity:
-                j = 0
-                while j <= self.end:
-                    temp[i] = self.queue[j]
-                    i += 1
-                    j += 1
             self.queue = temp
             self.front = 0
             self.end = self.capacity - 1
@@ -55,6 +49,15 @@ class circularqueue(object):
             return self.end - self.front + 1
         else:
             return self.end - self.front + self.capacity + 1
+    
+    def print(self):
+        i = self.front
+        count = 0 
+        size = self.size()
+        while count < size:
+            print(self.queue[i], end = " ")
+            i = (i + 1) % self.capacity
+            count += 1
 
 queue = circularqueue(5)
 queue.add(5)
