@@ -45,7 +45,7 @@ class Queue(object):
         print()
     
 
-queue = Queue(7)
+""" queue = Queue(7)
 queue.enqueue(5)
 queue.enqueue(6)
 queue.enqueue(3)
@@ -62,4 +62,4 @@ print(queue.dequeue())
 print(queue.dequeue())
 print(queue.dequeue())
 print(queue.dequeue())
-print(queue.dequeue())
+print(queue.dequeue()) """
