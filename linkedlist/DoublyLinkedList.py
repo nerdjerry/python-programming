@@ -53,6 +53,7 @@ class DoublyLinkedList:
         removedNode.setPrev(None)
         self.size -=1
         return removedNode
+
     def addBefore(self,newEmployee, employee):
         newEmployeeNode = EmployeeNode(newEmployee)
         current = self.head
@@ -75,7 +76,19 @@ class DoublyLinkedList:
             return True
         else:
             return False
-
+    def remove(self, index):
+        counter = 0
+        current = self.head
+        while counter != index-1:
+            counter += 1
+            current = current.getNext()
+        removedNode = current.getNext()
+        current.setNext(removedNode.getNext())
+        removedNode.getNext().setPrev(current)
+        removedNode.setNext(None)
+        removedNode.setPrev(None)
+        return removedNode
+        
     def getSize(self):
         return self.size
     
