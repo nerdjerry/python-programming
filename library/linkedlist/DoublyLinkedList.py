@@ -1,7 +1,6 @@
-from Employee import Employee
-from EmployeeNode import EmployeeNode
-
-class DoublyLinkedList:
+from .EmployeeNode import EmployeeNode
+from .Employee import Employee
+class DoublyLinkedList(object):
     
     def __init__(self):
         self.head = None
@@ -79,9 +78,15 @@ class DoublyLinkedList:
     def remove(self, index):
         counter = 0
         current = self.head
-        while counter != index-1:
+        while counter < index-1:
             counter += 1
             current = current.getNext()
+        if index == 0:
+            self.head = current.getNext()
+            self.head.setPrev(self.head)
+            current.setNext(None)
+            current.setPrev(None)
+            return current
         removedNode = current.getNext()
         current.setNext(removedNode.getNext())
         removedNode.getNext().setPrev(current)
@@ -103,22 +108,22 @@ class DoublyLinkedList:
             currentNode = currentNode.getNext()
         print("None")
     
-charlie = Employee("Charlie","Man",121)
-prateek = Employee("Prateek","Singhal",1212)
-sara = Employee("Sara","Khan",12121)
+# charlie = Employee("Charlie","Man",121)
+# prateek = Employee("Prateek","Singhal",1212)
+# sara = Employee("Sara","Khan",12121)
 
-list = DoublyLinkedList()
-list.insertAtEnd(charlie)
-list.insertAtEnd(prateek)
-list.insertAtEnd(sara)
+# list = DoublyLinkedList()
+# list.insertAtEnd(charlie)
+# list.insertAtEnd(prateek)
+# list.insertAtEnd(sara)
 
-list.print()
-aditi = Employee("Aditi","Aggarwal",31)
-list.addBefore(aditi,prateek)
-list.print()
-print(list.removeAtFront().getEmployee())
+# list.print()
+# aditi = Employee("Aditi","Aggarwal",31)
+# list.addBefore(aditi,prateek)
+# list.print()
+# print(list.removeAtFront().getEmployee())
 
-list.print()
+# list.print()
 
-print(list.getSize())
-print(list.isEmpty())
+# print(list.getSize())
+# print(list.isEmpty())
