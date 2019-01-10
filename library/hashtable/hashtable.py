@@ -1,4 +1,4 @@
-from storedValue import storedValue
+from .storedValue import storedValue
 
 class hashtable(object):
 
