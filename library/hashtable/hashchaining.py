@@ -24,8 +24,11 @@ class hashchaining(object):
     
     def remove(self,key):
         hashedKey = self.hashkey(key)
-        current = self.table[hashedKey].head
         removed = None
+        #This means element looking is not even in table based on hah
+        if self.table[hashedKey] == None:
+            return removed
+        current = self.table[hashedKey].head
         index = 0
         while current != None:
             if current.getEmployee().key == key:
