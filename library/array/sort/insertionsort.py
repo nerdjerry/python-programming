@@ -1,5 +1,5 @@
-def sort(array):
-    for firstUnsortedIndex in range (1, len(array)):
+def sort(array,length):
+    for firstUnsortedIndex in range (1, length):
         newElement = array[firstUnsortedIndex]
         i = firstUnsortedIndex
         while i > 0 and array[i-1] > newElement:
@@ -7,7 +7,7 @@ def sort(array):
             i = i - 1
         array[i] = newElement
 
-array = [20, 35, -15, 7, 55, 1, -22]
-sort(array)
-for i in range(len(array)):
-    print(array[i])
+#array = [20, 35, -15, 7, 55, 1, -22]
+#sort(array)
+#for i in range(len(array)):
+#    print(array[i])
