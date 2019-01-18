@@ -12,7 +12,19 @@ def search(input, value, start, end):
     elif input[midpoint] < value :
         return search(input,value,midpoint+1, end)
 
+def iterativeBinarySearch(input, value):
+    start = 0
+    end = len(input)
 
+    while(start < end):
+        midpoint = (start + end) // 2
+        if(input[midpoint] == value):
+            return midpoint
+        elif input[midpoint] < value:
+            start = midpoint + 1
+        else:
+            end = midpoint
+    return -1
 input = [12,34,56,67,89,90]
-print(binarySearch(input,56))
-print(binarySearch(input,45))
+print(iterativeBinarySearch(input,56))
+print(iterativeBinarySearch(input,45))
