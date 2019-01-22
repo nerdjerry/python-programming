@@ -18,7 +18,28 @@ class TreeNode(object):
                 self.rightChild = TreeNode(value)
             else:
                 self.rightChild.insert(value)
-                
+
+    def traversePreOrder(self):
+        print(self.data)
+        if self.leftChild != None:
+            self.leftChild.traversePreOrder()
+        if self.rightChild != None:
+            self.rightChild.traversePreOrder()
+    
+    def traverseInOrder(self):
+        if self.leftChild != None:
+            self.leftChild.traverseInOrder()
+        print(self.data)
+        if self.rightChild != None:
+            self.rightChild.traverseInOrder()
+
+    def traversePostOrder(self):
+        if self.leftChild != None:
+            self.leftChild.traversePostOrder()
+        if self.rightChild != None:
+            self.rightChild.traversePostOrder()
+        print(self.data)
+
     def getData(self):
         return self.data
     
