@@ -29,6 +29,23 @@ class Tree(object):
         else:
             print("Empty Tree")
     
+    def get(self, value):
+        if self.root != None:
+            return self.root.get(value)
+        else:
+            return None
+    
+    def min(self):
+        if self.root != None:
+            return self.root.min()
+        else:
+            print("Empty Tree")
+    
+    def max(self):
+        if self.root != None:
+            return self.root.max()
+        else:
+            print("Empty Tree")
 tree = Tree()
 tree.insert(25)
 tree.insert(20)
@@ -40,3 +57,7 @@ print("In Order")
 tree.traverseInOrder()
 print("Pre Order")
 tree.traversePreOrder()
+print(tree.get(13))
+print(tree.get(1213))
+print(tree.min())
+print(tree.max())

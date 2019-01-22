@@ -40,6 +40,29 @@ class TreeNode(object):
             self.rightChild.traversePostOrder()
         print(self.data)
 
+    def get(self, value):
+        if self.data == value:
+            return self.data
+        elif self.data < value:
+            if self.rightChild != None:
+                return self.rightChild.get(value)
+        else:
+            if self.leftChild != None:
+                return self.leftChild.get(value)
+        return None
+    
+    def min(self):
+        if self.leftChild != None:
+            return self.leftChild.min()
+        else:
+            return self.data
+    
+    def max(self):
+        if self.rightChild != None:
+            return self.rightChild.max()
+        else:
+            return self.data
+        
     def getData(self):
         return self.data
     
