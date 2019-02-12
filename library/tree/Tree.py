@@ -46,6 +46,12 @@ class Tree(object):
             return self.root.max()
         else:
             print("Empty Tree")
+    
+    def delete(self,value):
+        if self.root == None:
+            return
+        else:
+            self.root = self.root.delete(value)
 tree = Tree()
 tree.insert(25)
 tree.insert(20)
@@ -61,3 +67,6 @@ print(tree.get(13))
 print(tree.get(1213))
 print(tree.min())
 print(tree.max())
+tree.delete(13)
+print("After delete")
+tree.traverseInOrder()

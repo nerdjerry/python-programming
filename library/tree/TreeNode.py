@@ -80,3 +80,27 @@ class TreeNode(object):
     
     def setRightChild(self,rightChild):
         self.rightChild = rightChild
+
+    def delete(self,value):
+        if value < self.data:
+            self.leftChild = self.leftChild.delete(value)
+            return self
+        elif value > self.data:
+            self.rightChild = self.rightChild.delete(value)
+            return self
+        else:
+            #Case1
+            if self.leftChild == None and self.rightChild == None:
+                return None
+            #Case2
+            elif self.leftChild != None and self.rightChild == None:
+                child = self.leftChild
+                self.leftChild = None
+                return child
+            elif self.rightChild != None and self.leftChild == None:
+                child = self.rightChild
+                self.rightChild = None
+                return child
+            else:
+                #Case 3
+                return None
