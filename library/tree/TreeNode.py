@@ -103,4 +103,21 @@ class TreeNode(object):
                 return child
             else:
                 #Case 3
-                return None
+                toDelete = self
+                current = self.leftChild
+                parent = self
+                while current.rightChild != None:
+                    parent = current
+                    current = current.rightChild
+                toDelete.data = current.data
+                if current.leftChild != None:
+                    if parent == self:
+                        parent.leftChild = current.leftChild
+                    else:
+                        parent.rightChild = current.leftChild
+                else:
+                    if parent == self:
+                        parent.leftChild = None
+                    else:
+                        parent.rightChild = None
+                return self
