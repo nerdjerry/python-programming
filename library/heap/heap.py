@@ -8,14 +8,21 @@ class heap(object):
     
     def insert(self,value):
         self.heap.append(value)
+        
+        self.heapifyAbove(self.index)
         self.index += 1
-        currentIndex = self.index - 1
-        parentIndex = self.parent(currentIndex)
-        while parentIndex >= 0 and self.heap[currentIndex] > self.heap[parentIndex] :
-            self.swap(currentIndex,parentIndex)
-            currentIndex = parentIndex
-            parentIndex = self.parent(currentIndex)
     
+    def heapifyAbove(self,index):
+        newValue = self.heap[index]
+        parentIndex = self.parent(index)
+        while index > 0 and newValue > self.heap[parentIndex]:
+            #bring parent down
+            self.heap[index] = self.heap[parentIndex]
+            index = parentIndex
+            parentIndex = self.parent(index)
+        #heapified value above
+        self.heap[index] = newValue
+
     def swap(self, currentIndex, parentIndex):
         temp = self.heap[parentIndex]
         self.heap[parentIndex] = self.heap[currentIndex]
