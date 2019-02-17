@@ -22,7 +22,7 @@ class heap(object):
             self.index -= 1
             self.heap[deleteIndex] = self.heap[self.index]
             self.heap[self.index] = None
-            if self.heap[deleteIndex] > self.heap[self.parent(deleteIndex)]:
+            if deleteIndex > 0 and self.heap[deleteIndex] > self.heap[self.parent(deleteIndex)]:
                 self.heapifyAbove(deleteIndex)
             elif (self.leftChildExists(deleteIndex) and \
                 self.heap[deleteIndex] < self.heap[self.leftChild(deleteIndex)]) or \
@@ -104,5 +104,5 @@ data.insert(46)
 data.insert(123)
 data.insert(34)
 data.insert(67)
-data.delete(90)
+data.delete(123)
 print("done")
