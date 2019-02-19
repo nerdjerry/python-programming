@@ -89,6 +89,8 @@ class heap(object):
                 tmp = self.heap[index]
                 self.heap[index] = self.heap[childToSwap]
                 self.heap[childToSwap] = tmp
+            else :
+                break
             index = childToSwap
 
     def heapifyBelow(self,index):
