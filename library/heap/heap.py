@@ -46,6 +46,12 @@ class heap(object):
         self.index -= 1
         return deletedValue
 
+    def peak(self):
+        if self.isEmpty():
+            return
+        else:
+            return self.heap[0]
+
     def leftChildExists(self,index):
         return self.leftChild(index) < self.index and self.heap[self.leftChild(index)] != None
     
@@ -137,8 +143,10 @@ data.insert(12)
 data.insert(4)
 data.insert(90)
 data.insert(46)
+print(data.peak())
 data.insert(123)
 data.insert(34)
 data.insert(67)
 data.remove(1)
+print(data.peak())
 print("done")
