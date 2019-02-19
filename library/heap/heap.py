@@ -28,15 +28,32 @@ class heap(object):
                 self.heap[deleteIndex] < self.heap[self.leftChild(deleteIndex)]) or \
                 (self.rightChildIndexExists(deleteIndex) and \
                     self.heap[deleteIndex] < self.heap[self.rightChild(deleteIndex)]):
-                self.heapifyBelow(deleteIndex)
+                self.heapifyBelowIndex(deleteIndex,self.index - 1)
             else:
                 return
-                
+    
+    def remove(self,index):
+        if self.isEmpty():
+            return
+        deletedValue = self.heap[index]
+        parentIndex = self.parent(index)
+        self.heap[index] = self.heap[self.index - 1]
+        self.heap[self.index - 1] = None
+        if index == 0 or self.heap[index] < self.heap[parentIndex]:
+            self.heapifyBelowIndex(index,self.index - 1)
+        else:
+            self.heapifyAbove(index)
+        self.index -= 1
+        return deletedValue
+
     def leftChildExists(self,index):
         return self.leftChild(index) < self.index and self.heap[self.leftChild(index)] != None
     
     def rightChildIndexExists(self,index):
         return self.rightChild(index) <  self.index and self.heap[self.rightChild(index)] != None
+
+    def isEmpty(self):
+        return self.index == 0
 
     def getDeleteIndex(self,value):
         currentIndex = 0
@@ -57,6 +74,23 @@ class heap(object):
         #heapified value above
         self.heap[index] = newValue
     
+    def heapifyBelowIndex(self,index,lastHeapIndex):
+        while index < lastHeapIndex:
+            leftChildIndex = self.leftChild(index)
+            rightChildIndex = self.rightChild(index)
+            if leftChildIndex < lastHeapIndex:
+                if rightChildIndex < lastHeapIndex and self.heap[leftChildIndex] < self.heap[rightChildIndex]:
+                    childToSwap = rightChildIndex
+                else:
+                    childToSwap = leftChildIndex
+            else:
+                break
+            if self.heap[childToSwap] > self.heap[index]:
+                tmp = self.heap[index]
+                self.heap[index] = self.heap[childToSwap]
+                self.heap[childToSwap] = tmp
+            index = childToSwap
+
     def heapifyBelow(self,index):
         value = self.heap[index]
         leftChildIndex = self.leftChild(index)
@@ -104,5 +138,5 @@ data.insert(46)
 data.insert(123)
 data.insert(34)
 data.insert(67)
-data.delete(123)
+data.remove(1)
 print("done")
