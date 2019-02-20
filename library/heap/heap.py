@@ -52,6 +52,15 @@ class heap(object):
         else:
             return self.heap[0]
 
+    def heapSort(self):
+        lastHeapIndex = self.index - 1
+        while lastHeapIndex >= 0:
+            tmp = self.heap[0]
+            self.heap[0] = self.heap[lastHeapIndex]
+            self.heap[lastHeapIndex] = tmp
+            self.heapifyBelowIndex(0,lastHeapIndex)
+            lastHeapIndex -= 1
+            
     def leftChildExists(self,index):
         return self.leftChild(index) < self.index and self.heap[self.leftChild(index)] != None
     
@@ -132,6 +141,12 @@ class heap(object):
     
     def rightChild(self, currentIndex):
         return 2*currentIndex + 2
+    
+    def printSorted(self):
+        currentIndex = self.index - 1
+        while currentIndex > -1:
+            print(self.heap[currentIndex], end = ",")
+            currentIndex -= 1
 
 data = heap()
 data.insert(21)
@@ -149,4 +164,5 @@ data.insert(34)
 data.insert(67)
 data.remove(1)
 print(data.peak())
-print("done")
+data.heapSort()
+data.printSorted()
