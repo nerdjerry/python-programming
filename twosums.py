@@ -1,12 +1,11 @@
 class Solution:
     def twoSum(self, nums, target):
-        numsInverse = []
-        for a in nums:
-            numsInverse.append(target-a)
-        numsSet = set(nums)
-        numsInverseSet = set(numsInverse)
-        intersectSet = numsSet.intersection(numsInverseSet)
-        return list(intersectSet)
+        hashmap = {}
+        for i in range(0, len(nums)):
+            hashmap[nums[i]] = i
+            compliment = target - nums[i]
+            if compliment in hashmap.keys() and hashmap[compliment] != i:
+                return [i, hashmap[compliment]]
 
 sol = Solution()
-print(sol.twoSum([2,7,11,15],9))
+print(sol.twoSum([3,3],6))
