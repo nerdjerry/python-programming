@@ -4,20 +4,20 @@ class GFG {
 	// function to segregate 0s and 1s 
 	static void segregate0and1(int arr[], int n) 
 	{ 
-        int right = 0;
-        int left = n-1;
-        while(left > right){
-            if(arr[right] == 0 && left > right){
-                right++;
+        int left = 0;
+        int right = n-1;
+        while(left < right){
+            while(arr[left] == 0 && left < right){
+                left++;
             }
-            if(arr[left] == 1 && left > right){
-                left--;
+            while(arr[right] == 1 && left < right){
+                right--;
             }
-            if(left > right){
-                arr[right] = 0;
-                arr[left] = 1;
-                right++;
-                left--;
+            if(left < right){
+                arr[left] = 0;
+                arr[right] = 1;
+                left++;
+                right--;
             }
         }
 	} 
